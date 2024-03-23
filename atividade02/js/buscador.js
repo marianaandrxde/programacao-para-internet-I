@@ -45,38 +45,104 @@ class Buscador {
     async calcularPontuacaoTermos(pagina, termo, pontuacaoPagina) {
         try {
             const html = await fs.promises.readFile(pagina, 'utf8');
-            const regex = new RegExp(`(?<!href="[^"]*)${termo}(?![^"]*">)`, 'gi');
-            const matches = html.match(regex);
     
+            // Criar uma instância do Cheerio para manipular o HTML
+            const $ = cheerio.load(html);
+    
+            // Capturar todo o conteúdo HTML
+            const conteudoHTML = $('html').html();
+    
+            // Criar uma expressão regular para corresponder ao termo com fronteiras de palavras
+            const regex = new RegExp(`\\b${termo}\\b`, 'gi');
+    
+            // Usar a expressão regular para encontrar todas as ocorrências do termo no conteúdo HTML
+            const matches = conteudoHTML.match(regex);
+    
+            // Contar o número de ocorrências encontradas
             const frequencia = matches ? matches.length : 0;
+    
             pontuacaoPagina.pontuacaoTermos = frequencia * 5;
         } catch (error) {
             console.error("Ocorreu um erro ao calcular a pontuação dos termos:", error);
         }
     }
 
+   
     async calcularPontuacaoTags(pagina, termo, pontuacaoPagina) {
         try {
             const html = await fs.promises.readFile(pagina, 'utf8');
             const $ = cheerio.load(html);
-
+    
             const regex = new RegExp(termo, 'gi');
+    
+            // Correspondências no corpo do HTML
             const matches = html.match(regex);
             const frequencia = matches ? matches.length : 0;
-
+    
             let relevancia = 0;
-            relevancia += $('title:contains(' + termo + ')').length * 20;
-            relevancia += $('meta[content*=' + termo + ']').length * 20;
-            relevancia += $('h1:contains(' + termo + ')').length * 15;
-            relevancia += $('h2:contains(' + termo + ')').length * 10;
-            relevancia += $('p:contains(' + termo + ')').length * 5;
-            relevancia += $('a:contains(' + termo + ')').length * 2;
+    
+            // Título
+            $('title').each(function () {
+                const count = $(this).text().match(regex);
+                if (count) {
+                    relevancia += count.length * 20;
+                    console.log('title')
+                }
+            });
+    
+            // Meta tags
+            $('meta').each(function () {
+                const content = $(this).attr('content');
+                if (content && content.match(regex)) {
+                    const count = content.match(regex);
+                    relevancia += count.length * 20;
+                    console.log('meta')
 
-            pontuacaoPagina.pontuacaoTags = frequencia + relevancia;
+                }
+            });
+    
+            // Outros elementos relevantes (h1, h2, p, a)
+            $('h1, h2').each(function () {
+                const count = $(this).text().match(regex);
+                if (count) {
+                    if ($(this).is('h1')) {
+                        relevancia += count.length * 15;
+                        console.log('h1')
+
+                    } else {
+                        relevancia += count.length * 10;
+                        console.log('h2')
+
+                    }
+                }
+            });
+    
+            $('p').each(function () {
+                const count = $(this).text().match(regex);
+                if (count) {
+                    relevancia += count.length * 5;
+                    console.log('p')
+
+                }
+            });
+    
+            $('a').each(function () {
+                const count = $(this).text().match(regex);
+                if (count) {
+                    relevancia += count.length * 2;
+                    console.log('a')
+
+                }
+            });
+    
+            pontuacaoPagina.pontuacaoTags = relevancia;
         } catch (error) {
             console.error("Ocorreu um erro ao calcular a pontuação das tags:", error);
         }
     }
+
+    
+    
 
     async calcularPontuacaoLinks(pagina, pontuacaoPagina) {
         try {
@@ -92,7 +158,7 @@ class Buscador {
                 }
             });
 
-            pontuacaoPagina.pontuacaoLinks = count * 20;
+            pontuacaoPagina.pontuacaoLinks = count * 10;
         } catch (error) {
             console.error("Ocorreu um erro ao calcular a pontuação dos links:", error);
         }
@@ -128,25 +194,31 @@ class Buscador {
 
     async calcularFrescor(pagina, pontuacaoPagina) {
         try {
-            const html = await fs.promises.readFile(pagina, 'utf8');
-            const $ = cheerio.load(html);
-
-            const dataPublicacaoStr = $('time[datetime]').attr('datetime');
-            if (!dataPublicacaoStr) {
-                console.error("Data de publicação não encontrada.");
-                return;
-            }
-
-            const dataPublicacao = new Date(dataPublicacaoStr);
+          const html = fs.readFileSync(pagina, 'utf8');
+          const $ = cheerio.load(html);
+      
+          const dataPublicacaoStr = $('p em').text().match(/\d{2}\/\d{2}\/\d{4}/);
+      
+          if (dataPublicacaoStr) {
+            const dataPublicacaoParts = dataPublicacaoStr[0].split('/');
+            const dataPublicacao = new Date(dataPublicacaoParts[2], dataPublicacaoParts[1] - 1, dataPublicacaoParts[0]);
+      
             const anoAtual = new Date().getFullYear();
             const anoPublicacao = dataPublicacao.getFullYear();
             const diferencaAnos = anoAtual - anoPublicacao;
-
-            pontuacaoPagina.frescor = Math.max(30 - (5 * diferencaAnos), 0);
+      
+            pontuacaoPagina.frescor = 30 - (5 * diferencaAnos);
+      
+            return pontuacaoPagina.frescor;
+          } else {
+            console.error("Data de publicação não encontrada.");
+            return 0;
+          }
         } catch (error) {
-            console.error("Ocorreu um erro ao calcular os pontos de frescor:", error);
+          console.error("Ocorreu um erro ao calcular os pontos de frescor:", error);
+          return 0;
         }
-    }
+      }
 
     async extrairLinks(pagina) {
         try {
@@ -196,13 +268,13 @@ class Buscador {
 }
 
 // Exemplo de utilização
-const buscador = new Buscador('/home/grunalabs/Downloads/curso-full-stack-senai-main/Documentos/Projetoweb/index.html');
-buscador.buscar('noronha')
+const buscador = new Buscador('/home/oliveiras/Workspace/programacao-para-internet-I/atividade02/pаginas/matrix.html');
+buscador.buscar('matrix')
     .then(pontuacoes => {
         console.log('      AUTORIDADE    | FREQUÊNCIA DO TERMO   | USO EM TAGS   | AUTORREFERÊNCIAS    | FRESCOR  DO CONTEÚDO')
         pontuacoes.forEach(({ pagina, pontuacaoPagina }) => {
             if (pontuacaoPagina.pontuacaoTermos > 0) {
-                console.log("Página ", pagina);
+                console.log("matrix", pagina);
                 console.log("       ",pontuacaoPagina.pontuacaoLinks, "                 ",
                 pontuacaoPagina.pontuacaoTermos, "                  ",
                 pontuacaoPagina.pontuacaoTags, "               ",
