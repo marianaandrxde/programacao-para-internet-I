@@ -1,6 +1,7 @@
-import fs from 'fs';
+import fs, { readSync } from 'fs';
 import cheerio from 'cheerio';
 import path from 'path';
+import readline from 'readline-sync';
 
 class PontuacaoPagina {
     constructor() {
@@ -273,7 +274,7 @@ class Buscador {
     }
 
 let buscador = new Buscador('/home/oliveiras/Workspace/programacao-para-internet-I/atividade02/matrix.html');
-let termo = 'matrix';
+let termo = readline.question('Digite o termo a ser buscado: ')
 buscador.buscar(termo)
     .then(pontuacoes => {
         console.log(`---------------------------------------------BUSCA PELA PALAVRA ${termo}--------------------------------------------------------`)
