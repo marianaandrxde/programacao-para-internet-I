@@ -2,7 +2,7 @@
 
 ## Descrição
 Buscador é uma implementação que atribui pontuações a partir da análise de páginas HTML. Através de uma página inicial recebida
-como parâmetro, o buscador solicita ao usuário a inserção de um termo, que será utilizado para efetuar a busca e cálculo de pontuações.
+como parâmetro, o buscador solicita ao usuário a inserção de um termo, que será utilizado para efetuar a busca, cálculo de pontuações e ranqueamento das páginas.
 O programa baixa o conteúdo das outras páginas, a partir dos links referenciados na página atual e adiciona a um array, para evitar que 
 a página seja acessada duas vezes e, consequentemente, prolongue o processo.
 
