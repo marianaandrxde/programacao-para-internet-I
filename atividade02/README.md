@@ -8,7 +8,7 @@ a página seja acessada duas vezes e, consequentemente, prolongue o processo.
 
 ### Pontuações
 
-- Links recebidos de outras páginas (+20pts cada);
+- Links recebidos de outras páginas (+10pts cada);
 - Quantidade dos termos buscados (+5pts cada ocorrência);
 - Uso do termo buscado em tags Title e Meta (+20pts cada);
 - Uso do termo buscado em tags h1 (+15pts cada);
@@ -46,6 +46,15 @@ a página seja acessada duas vezes e, consequentemente, prolongue o processo.
 na linha 276 do arquivo buscador.js, para o path correspondente à localização 
 do arquivo localmente.</p>
 - Após, execute usando 'node buscador.js'.</p>
+
+## Resultado
+
+#### Simulação utilizando o termo MATRIX
+  
+![image](https://github.com/marianaandrxde/programacao-para-internet-I/assets/126893887/8f448887-3ef1-4a3c-b351-3340345d94da)
+
+## Recomendação
+Aconselha-se a utilização de uma máquina com sistema operacional Linux para realizar o teste do sistema.
 
 <hr> 
 
