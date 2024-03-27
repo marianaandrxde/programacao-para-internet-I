@@ -1,5 +1,5 @@
 ## Componentes
-<p style="font-size: 16px;">Ana Beatriz Brito de Farias</p>. 
+<p style="font-size: 16px;">Ana Beatriz Brito de Farias</p>
 <p style="font-size: 16px;">Henrique Ferreira Paiva</p>
 <p style="font-size: 16px;">Mariana Oliveira Andrade</p>
 
