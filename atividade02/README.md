@@ -31,21 +31,33 @@ a página seja acessada duas vezes e, consequentemente, prolongue o processo.
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
 
 
-## Requisitos
-#### Cheerio
+## Instalações
+O projeto foi desenvolvido para executar em sistema operacional Linux.
+- Primeiro, instale o Node.js e NPM
+- Instale o Cheerio
 
       npm install cheerio
 
-#### Readline-Sync
+- Instale a Readline-Sync
 
       npm install readline-sync
+      
+### Versões
+
+##### Node v18.17.0
+##### Cheerio v1.0.0-rc.12
+##### Readline-Sync v1.4.10
+
 
 ## Para executar
 - Faça o download do arquivo ZIP do repositório ou clone-o.
 - Substitua o path do arquivo passado como parâmetro para a instância da classe Buscador, 
 na linha 276 do arquivo buscador.js, para o path correspondente à localização 
-do arquivo localmente.</p>
-- Após, execute usando 'node buscador.js'.</p>
+do arquivo localmente.
+- Após, execute usando
+  
+        node buscador.js
+  
 
 ## Resultado
 
@@ -53,8 +65,6 @@ do arquivo localmente.</p>
   
 ![image](https://github.com/marianaandrxde/programacao-para-internet-I/assets/126893887/8f448887-3ef1-4a3c-b351-3340345d94da)
 
-## Recomendação
-Aconselha-se a utilização de uma máquina com sistema operacional Linux para realizar o teste do sistema.
 
 <hr> 
 
