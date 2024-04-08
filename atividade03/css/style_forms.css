@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.btn-light{
+    background-color: #AA836A;
+    color: #fff;
+    border-radius: 8px;
+    height: 40px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.area-login{
+    padding-top: 40px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 400px;
+    padding: auto;
+    border-radius:10px ;
+}
+
+.login form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login input{
+    margin-top: 5px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    height: 45px;
+    stroke: aliceblue;
+}
+
+.login img{
+    width: 100px;
+    height: auto;
+}
+
+.login label{
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #000000c0;
+}
+
+.input::placeholder{
+    color: black;
+    font-size: 14px;
+}
+
+form [type="submit"]{
+    display: block;
+    background-color: #4C882B;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+}
+
+a{
+    color: #4C882B;
+    text-decoration: none;
+}
+
+h1{
+    margin: 25px;
+}
+
+p{
+    font-size: 14px;
+}
+
+.form-image {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fde3a7d7;
+}
+
+.form-image img {
+    width: 100%;
+    height: 100%;
+}
+
+section.container{
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/*Rodapé*/
+footer {
+    text-align: center;
+    background-color: black; /* Adicionando cor de fundo preta */
+    color: white; /* Definindo a cor do texto como branco */
+    padding: 20px 0; /* Adicionando algum espaçamento interno */
+    position: fixed; /* Fixando o rodapé na parte inferior da página */
+    width: 100%; /* Garantindo que o rodapé ocupe toda a largura da página */
+    bottom: 0; /* Alinhando o rodapé na parte inferior */
+}
