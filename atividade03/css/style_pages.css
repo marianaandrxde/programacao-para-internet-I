@@ -26,9 +26,11 @@ main {
 #section-painel img {
     height: 25%;
     border-radius: 10px;
-    margin-bottom: 50px;
 }
 
+.card-body{
+    color: #AA836A;
+}
 #section-vendidos h2 {
     font-weight: bold;
     color: #AA836A;
@@ -61,7 +63,7 @@ footer {
 
 footer p {
     font-weight: bold;
-    padding: 10px;
+    padding-top: 28px;
 }
 
 .btn-light {
@@ -77,6 +79,13 @@ footer p {
     right: 50px;
 }
 
+h2 {
+    font-weight: bold;
+    color: #AA836A;
+    padding: 20px;
+    font-family: "DM Serif Text", serif;;
+}
+
 /* página de login  */
 
 #section-login {
@@ -90,8 +99,6 @@ footer p {
 #section-login input {
     width: 100%;
 }
-
-/* Formulário de cadastro*/
 
 #section-cadastro {
     padding: 5px;
@@ -126,34 +133,33 @@ section.texto {
 section.texto img {
     max-width: 100%;
     max-height: 700px;
-    margin: 0 auto; /* Centralizar horizontalmente */
-    display: block; /* Para garantir que a margem automática funcione corretamente */
+    margin: 0 auto; 
+    display: block; 
     border-radius: 15px;
 }
 
 section.container img {
     display: block;
-    margin: 0 auto; /* Centralizar horizontalmente */
+    margin: 0 auto; 
     border-radius: 15px;
 }
 
 h2{
-    margin-top: 30px;
+    margin-top: 0;
     margin-bottom: 15px;
 }
 
 /*Rodapé*/
 footer {
     text-align: center;
-    background-color: #AA836A; /* Adicionando cor de fundo preta */
-    color: white; /* Definindo a cor do texto como branco */
-    padding: 20px 0; /* Adicionando algum espaçamento interno */
-    width: 100%; /* Garantindo que o rodapé ocupe toda a largura da página */
-    bottom: 0; /* Alinhando o rodapé na parte inferior */
+    background-color: #AA836A;
+    color: white;
+    padding: 20px 0;
+    width: 100%; 
+    bottom: 0; 
     height:400px;
-    flex-direction: row;
-    display: inline-flex;
-
+    justify-content: space-between;
+    align-items: center;
 }
 
 footer img{
@@ -162,6 +168,81 @@ footer img{
 }
 
 .footer-itens{
+    display: flex;
+    flex-direction: column;
     max-width: 350px;
+    justify-content: space-between;
+    align-items: center;
+    float: left;
+    margin-right: 200px;
 }
 
+footer a {
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+}
+
+footer a:hover{ background-color: #F5F5DC; 
+
+    transition: 0.5s;
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+footer .btn-light{
+    background-color: #AA836A;
+    color: white;
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+  }
+  
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+#customers tr:hover {background-color: #ddd;}
+  
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #AA836A;
+    color: white;
+}
+
+
+.container-fluid{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+section details{
+    font-size: 18px;
+}
+
+section details summary{
+    background-color: #AA836A;
+    padding: 2%;
+    color: #fff;
+    border-bottom: 2px solid white;
+}
+
+section details p{
+    background-color:#C8AF9F;
+    padding: 2%;
+    transition: all .5s;
+}
+
+.navbar-brand{
+    padding-left: 25px ;
+}
