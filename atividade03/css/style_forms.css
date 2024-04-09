@@ -78,20 +78,6 @@ body {
     font-size: 14px;
 }
 
-form [type="submit"]{
-    display: block;
-    background-color: #4C882B;
-    font-size: 20px;
-    cursor: pointer;
-    border: none;
-    color: #fff;
-}
-
-a{
-    color: #4C882B;
-    text-decoration: none;
-}
-
 h1{
     margin: 25px;
 }
@@ -121,13 +107,3 @@ section.container{
     overflow-x: hidden;
 }
 
-/*Rodapé*/
-footer {
-    text-align: center;
-    background-color: black; /* Adicionando cor de fundo preta */
-    color: white; /* Definindo a cor do texto como branco */
-    padding: 20px 0; /* Adicionando algum espaçamento interno */
-    position: fixed; /* Fixando o rodapé na parte inferior da página */
-    width: 100%; /* Garantindo que o rodapé ocupe toda a largura da página */
-    bottom: 0; /* Alinhando o rodapé na parte inferior */
-}

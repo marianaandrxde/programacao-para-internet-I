@@ -1,116 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
 
-/*cabeçalho*/
-header img {
-    height: 70px;
-    width: 70px;
-}
-/*Conteudo principal*/
+/*conteudo principal*/
 main {
     min-height: 500px;
-}
-
-/*banner*/
-#section-banners img{
-    height: 50%;
-    width: 50%;
-}
-
-/*Produtos vendidos*/
-#section-vendidos {
-    font-size: larger;
-  font-family: "DM Serif Text", serif;
-        text-align:left;
-}
-
-#section-painel img {
-    height: 25%;
-    border-radius: 10px;
-}
-
-.card-body{
-    color: #AA836A;
-}
-#section-vendidos h2 {
-    font-weight: bold;
-    color: #AA836A;
-    padding: 20px;
-}
-.navbar{
-    background-color: #AA836A;
-    color: #fff;
-}
-
-#section-vendidos img {
-    width: 100%;
-    height: 300px;
-    border-radius: 10px;
-}
-
-#section-vendidos .card {
-    margin: 5px;
-    height: 100%;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-
-/*Rodapé*/
-footer {
-    text-align: center;
-}
-
-footer p {
-    font-weight: bold;
-    padding-top: 28px;
-}
-
-.btn-light {
-    color: #ffff;
-    box-shadow: inset;
-}
-
-/*Botão Voltar topo*/
-
-#voltar-topo {
-    position: fixed;
-    bottom: 5px;
-    right: 50px;
 }
 
 h2 {
     font-weight: bold;
     color: #AA836A;
-    padding: 20px;
-    font-family: "DM Serif Text", serif;;
+    font-family: "DM Serif Text", serif;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    padding-left: 0;
 }
 
-/* página de login  */
-
-#section-login {
-    margin-top: 100px;
+/*cabeçalho e navbar*/
+header img {
+    height: 70px;
+    width: 70px;
 }
 
-#section-login h1 {
-    text-align: center;
+.navbar{
+    background-color: #AA836A;
+    color: #fff;
 }
 
-#section-login input {
-    width: 100%;
+.navbar-brand{
+    padding-left: 25px ;
 }
 
-#section-cadastro {
-    padding: 5px;
-    text-align: center;
-    background-color: #fff;
-}
-
-#form-cadastrar {
-    padding: 50px;
-    display: none;
-}
-
+/*banners do carrossel*/
 .carousel-caption {
     position: absolute;
     top: 50%;
@@ -123,30 +42,34 @@ h2 {
     margin-top: 20px;
 }
 
-section.texto {
-    margin-top: 20px;
-    padding-left: 500px;
-    padding-right: 500px;
-    text-align: justify;
+#section-banners img{
+    height: 50%;
+    width: 50%;
 }
 
-section.texto img {
-    max-width: 100%;
-    max-height: 700px;
-    margin: 0 auto; 
-    display: block; 
-    border-radius: 15px;
+/*destinos*/
+#section-destinos img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
 }
 
-section.container img {
-    display: block;
-    margin: 0 auto; 
-    border-radius: 15px;
+#section-destinos .card {
+    margin: 5px;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
-h2{
-    margin-top: 0;
-    margin-bottom: 15px;
+.card-body{
+    color: #AA836A;
+}
+
+/*painel*/
+#section-painel img {
+    height: 25%;
+    border-radius: 10px;
 }
 
 /*Rodapé*/
@@ -157,9 +80,14 @@ footer {
     padding: 20px 0;
     width: 100%; 
     bottom: 0; 
-    height:400px;
+    height:300px;
     justify-content: space-between;
     align-items: center;
+}
+
+footer p {
+    font-weight: bold;
+    padding-top: 28px;
 }
 
 footer img{
@@ -174,17 +102,16 @@ footer img{
     justify-content: space-between;
     align-items: center;
     float: left;
-    margin-right: 200px;
+    margin-right: 300px;
 }
 
-footer a {
+footer a{
     text-decoration: none;
     font-weight: 600;
     color: white;
 }
 
 footer a:hover{ background-color: #F5F5DC; 
-
     transition: 0.5s;
     border-radius: 10px;
     opacity: 0.7;
@@ -195,6 +122,27 @@ footer .btn-light{
     color: white;
 }
 
+section.texto {
+    margin-top: 20px;
+    padding-left: 500px;
+    padding-right: 500px;
+    text-align: justify;
+}
+
+/*Containers*/
+.container-fluid{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+section.container img {
+    display: block;
+    margin: 0 auto; 
+    border-radius: 15px;
+}
+
+/*tabela*/
 #customers {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -207,7 +155,7 @@ footer .btn-light{
     padding: 8px;
 }
   
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(even){background-color: #EAE6DE;}
   
 #customers tr:hover {background-color: #ddd;}
   
@@ -219,13 +167,7 @@ footer .btn-light{
     color: white;
 }
 
-
-.container-fluid{
-    width: 100%;
-    height: 100%;
-    padding: 0;
-}
-
+/*lista dropdown*/
 section details{
     font-size: 18px;
 }
@@ -243,6 +185,18 @@ section details p{
     transition: all .5s;
 }
 
-.navbar-brand{
-    padding-left: 25px ;
+section.texto img {
+    max-width: 100%;
+    max-height: 700px;
+    margin: 0 auto; 
+    display: block; 
+    border-radius: 15px;
 }
+
+/*botão voltar-topo*/
+#voltar-topo {
+    position: fixed;
+    bottom: 5px;
+    right: 50px;
+}
+
